@@ -48,6 +48,10 @@ public class Player {
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
             direction="Right";
         }
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
+        	Eat();
+        	
+        }
 
     }
 
@@ -118,6 +122,13 @@ public class Player {
 
 
     }
+    
+    public void forcedEat(){
+		lenght++;
+		Tail tail= null;
+		handler.getWorld().body.addLast(tail);
+		handler.getWorld().playerLocation[tail.x][tail.y] = true;
+		}
 
     public void Eat(){
         lenght++;
@@ -128,8 +139,9 @@ public class Player {
             case "Left":
                 if( handler.getWorld().body.isEmpty()){
                     if(this.xCoord!=handler.getWorld().GridWidthHeightPixelCount-1){
-                        tail = new Tail(this.xCoord+1,this.yCoord,handler);
-                    }else{
+                        tail = new Tail(this.xCoord+1,this.yCoord,handler);   
+                    }
+                    else{
                         if(this.yCoord!=0){
                             tail = new Tail(this.xCoord,this.yCoord-1,handler);
                         }else{
