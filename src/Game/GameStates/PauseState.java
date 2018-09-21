@@ -35,10 +35,6 @@ public class PauseState extends State {
             State.setState(handler.getGame().menuState);
         }));
 
-
-
-
-
     }
 
     @Override
