@@ -11,7 +11,6 @@ import Resources.Images;
 
 import javax.sound.sampled.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -121,6 +120,7 @@ public class GameSetUp implements Runnable {
 
         //initiallizes everything in order to run without breaking
         init();
+
         int fps = 60;
         double timePerTick = 500000000 / fps;
         double delta = 0;
@@ -131,7 +131,6 @@ public class GameSetUp implements Runnable {
 
         while(running){
             //makes sure the games runs smoothly at 60 FPS
-        	
             now = System.nanoTime();
             delta += (now - lastTime) / timePerTick;
             timer += now - lastTime;
@@ -149,9 +148,12 @@ public class GameSetUp implements Runnable {
                 ticks = 0;
                 timer = 0;
             }
-            }
+        }
+
         stop();
+
     }
+
     private void tick(){
         //checks for key types and manages them
         keyManager.tick();
