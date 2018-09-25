@@ -50,7 +50,6 @@ public class DisplayScreen {
         canvas.setBackground(Color.PINK);
 
         frame.add(canvas);
-        frame.pack();
     }
 
     public Canvas getCanvas(){
