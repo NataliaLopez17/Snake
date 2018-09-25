@@ -32,10 +32,10 @@ public class Player {
         lenght= 1;
 
     }
-
+    int counterSpeed = 5;
     public void tick(){
         moveCounter++;
-        if(moveCounter>=5) {
+        if(moveCounter>=counterSpeed) {
             checkCollisionAndMove();
             moveCounter=0;
         }
@@ -47,15 +47,14 @@ public class Player {
             direction="Left";
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
             direction="Right";
-        }
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)){
         	lenght++;
-        	handler.getWorld().body.addLast(new Tail(xCoord, yCoord, handler));  
-//        	gotta check this 
-        	
-        	
+        	handler.getWorld().body.addLast(new Tail(xCoord, yCoord, handler));  	
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)){
+            counterSpeed --;
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
+            counterSpeed ++;
         }
-
     }
 
     public void checkCollisionAndMove(){
