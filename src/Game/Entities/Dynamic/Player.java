@@ -49,7 +49,10 @@ public class Player {
             direction="Right";
         }
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
-        	Eat();
+        	lenght++;
+        	handler.getWorld().body.addLast(new Tail(xCoord, yCoord, handler));  
+//        	gotta check this 
+        	
         	
         }
 
@@ -122,13 +125,6 @@ public class Player {
 
 
     }
-    
-    public void forcedEat(){
-		lenght++;
-		Tail tail= null;
-		handler.getWorld().body.addLast(tail);
-		handler.getWorld().playerLocation[tail.x][tail.y] = true;
-		}
 
     public void Eat(){
         lenght++;
