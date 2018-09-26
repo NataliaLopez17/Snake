@@ -57,7 +57,7 @@ public class Player {
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
             counterSpeed ++;
         }
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_ESCAPE)){
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)){
             State.setState(handler.getGame().pauseState);
         }
     }
