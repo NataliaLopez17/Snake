@@ -131,8 +131,7 @@ public class Player {
     }
    
         
-    
-
+//    check
     public void Eat(){
         lenght++;
         Tail tail= null;
