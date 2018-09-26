@@ -129,6 +129,9 @@ public class Player {
 
 
     }
+   
+        
+    
 
     public void Eat(){
         lenght++;
