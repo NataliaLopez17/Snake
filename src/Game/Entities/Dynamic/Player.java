@@ -1,3 +1,4 @@
+
 package Game.Entities.Dynamic;
 
 import Main.Handler;
@@ -6,6 +7,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import Game.GameStates.PauseState;
 import Game.GameStates.State;
 
 /**
@@ -14,6 +16,7 @@ import Game.GameStates.State;
 public class Player {
 
     public int lenght;
+    public int timesEaten;
     public boolean justAte;
     private Handler handler;
 
@@ -32,6 +35,7 @@ public class Player {
         direction= "Right";
         justAte = false;
         lenght= 1;
+        timesEaten = 0;
 
     }
     int counterSpeed = 5;
@@ -56,9 +60,8 @@ public class Player {
             counterSpeed --;
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
             counterSpeed ++;
-        }
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)){
-            State.setState(handler.getGame().pauseState);
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)){
+        	State.setState(handler.getGame().pauseState);
         }
     }
 
@@ -129,9 +132,7 @@ public class Player {
 
 
     }
-   
-        
-//    check
+ 
     public void Eat(){
         lenght++;
         Tail tail= null;
@@ -239,6 +240,17 @@ public class Player {
         }
         handler.getWorld().body.addLast(tail);
         handler.getWorld().playerLocation[tail.x][tail.y] = true;
+        timesEaten++;
+        
+    }
+    // Attempt to show the times eaten
+    public void render(Graphics g) {
+    	
+    	g.setColor(Color.WHITE);
+    	g.setFont(new Font("Broadway", Font.BOLD, 30)); 
+    	g.drawString(Integer.toString(timesEaten), 10, 10);
+        handler.getWorld().render(g);
+
     }
 
     public void kill(){
