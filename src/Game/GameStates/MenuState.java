@@ -41,8 +41,6 @@ public class MenuState extends State {
 
     @Override
     public void render(Graphics g) {
-    	g.drawString("Score: ", 0, 0);
-        g.setColor(Color.RED);
         g.fillRect(0,0,handler.getWidth(),handler.getHeight());
         g.drawImage(Images.title,0,0,handler.getWidth(),handler.getHeight(),null);
         uiManager.Render(g);
