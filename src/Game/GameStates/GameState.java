@@ -46,9 +46,8 @@ public class GameState extends State {
     	g.drawRect(780, 0, 150, 780);
     	g.fillRect(780, 0, 150, 780);
     	g.setColor(Color.WHITE);
-    	g.setFont(new Font("Broadway", Font.BOLD, 30)); 
-    	//Add times eaten after "Score: ")
-    	g.drawString("Score: ", 785, 60);
+    	g.setFont(new Font("Broadway", Font.BOLD, 20)); 
+    	g.drawString("Score ", 785, 60);
 
         handler.getWorld().render(g);
 

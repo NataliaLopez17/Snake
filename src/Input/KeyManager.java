@@ -47,7 +47,6 @@ public class KeyManager implements KeyListener {
 		n = keys[KeyEvent.VK_N];
 		equals = keys[KeyEvent.VK_EQUALS];
 		minus = keys[KeyEvent.VK_MINUS];
-
 	}
 
 	@Override

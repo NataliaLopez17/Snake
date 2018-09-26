@@ -16,7 +16,6 @@ import Game.GameStates.State;
 public class Player {
 
     public int lenght;
-    public int timesEaten;
     public boolean justAte;
     private Handler handler;
 
@@ -35,7 +34,7 @@ public class Player {
         direction= "Right";
         justAte = false;
         lenght= 1;
-        timesEaten = 0;
+        
 
     }
     int counterSpeed = 5;
@@ -55,6 +54,7 @@ public class Player {
             direction="Right";
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)){
         	lenght++;
+        	timesEaten++;
         	handler.getWorld().body.addLast(new Tail(xCoord, yCoord, handler));  	
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)){
             counterSpeed --;
@@ -101,21 +101,20 @@ public class Player {
         }
         handler.getWorld().playerLocation[xCoord][yCoord]=true;
 
-
         if(handler.getWorld().appleLocation[xCoord][yCoord]){
             Eat();
         }
-
         if(!handler.getWorld().body.isEmpty()) {
             handler.getWorld().playerLocation[handler.getWorld().body.getLast().x][handler.getWorld().body.getLast().y] = false;
             handler.getWorld().body.removeLast();
             handler.getWorld().body.addFirst(new Tail(x, y,handler));
         }
-
     }
 
     public void render(Graphics g,Boolean[][] playeLocation){
         Random r = new Random();
+        g.setColor(Color.WHITE);
+    	g.drawString("Score " + timesEaten, 785, 60);
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
                 g.setColor(Color.GREEN);
@@ -132,7 +131,7 @@ public class Player {
 
 
     }
- 
+    public int timesEaten = 0;
     public void Eat(){
         lenght++;
         Tail tail= null;
@@ -240,15 +239,10 @@ public class Player {
         }
         handler.getWorld().body.addLast(tail);
         handler.getWorld().playerLocation[tail.x][tail.y] = true;
-        timesEaten++;
-        
+        timesEaten++;    
     }
-    // Attempt to show the times eaten
     public void render(Graphics g) {
     	
-    	g.setColor(Color.WHITE);
-    	g.setFont(new Font("Broadway", Font.BOLD, 30)); 
-    	g.drawString(Integer.toString(timesEaten), 10, 10);
         handler.getWorld().render(g);
 
     }
