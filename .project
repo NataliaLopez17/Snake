@@ -14,4 +14,46 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>res/Buttons/900SnakeMenu.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/900SnakeMenu.png</location>
+		</link>
+		<link>
+			<name>res/Buttons/GameOverScreenNEW.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/GameOverScreenNEW.png</location>
+		</link>
+		<link>
+			<name>res/Buttons/PauseScreenNEW.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/PauseScreenNEW.png</location>
+		</link>
+		<link>
+			<name>res/Buttons/Resume button Pause.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/Resume button Pause.png</location>
+		</link>
+		<link>
+			<name>res/Buttons/TitlePause.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/TitlePause.png</location>
+		</link>
+		<link>
+			<name>res/Buttons/restart button game over.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/restart button game over.png</location>
+		</link>
+		<link>
+			<name>res/Buttons/title button game over.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/title button game over.png</location>
+		</link>
+		<link>
+			<name>res/music/Undertale Ost 087 - Hopes and Dreams.wav</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Downloads/Undertale Ost 087 - Hopes and Dreams.wav</location>
+		</link>
+	</linkedResources>
 </projectDescription>

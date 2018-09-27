@@ -42,7 +42,7 @@ public class GameState extends State {
 
     @Override
     public void render(Graphics g) {
-    	g.setColor(Color.BLACK);
+    	g.setColor(Color.BLUE);
     	g.drawRect(780, 0, 150, 780);
     	g.fillRect(780, 0, 150, 780);
     	g.setColor(Color.WHITE);

@@ -72,6 +72,7 @@ public class Player {
         switch (direction){
             case "Left":
                 if(xCoord==0){
+                	State.setState(handler.getGame().gameOver);
                     kill();
                 }else{
                     xCoord--;
@@ -79,6 +80,7 @@ public class Player {
                 break;
             case "Right":
                 if(xCoord==handler.getWorld().GridWidthHeightPixelCount-1){
+                	State.setState(handler.getGame().gameOver);
                     kill();
                 }else{
                     xCoord++;
@@ -86,6 +88,7 @@ public class Player {
                 break;
             case "Up":
                 if(yCoord==0){
+                	State.setState(handler.getGame().gameOver);
                     kill();
                 }else{
                     yCoord--;
@@ -93,7 +96,8 @@ public class Player {
                 break;
             case "Down":
                 if(yCoord==handler.getWorld().GridWidthHeightPixelCount-1){
-                    kill();
+                	State.setState(handler.getGame().gameOver);
+                	kill();
                 }else{
                     yCoord++;
                 }
