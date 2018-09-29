@@ -21,7 +21,7 @@ public class GameOver extends State {
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUimanager(uiManager);
         
-        uiManager.addObjects(new UIImageButton(720, 70, 128, 64, Images.Restart, new ClickListlener() {
+        uiManager.addObjects(new UIImageButton(250, 365, 150, 150, Images.Restart, new ClickListlener() {
             @Override
             public void onClick() {
                 handler.getMouseManager().setUimanager(null);
@@ -30,7 +30,7 @@ public class GameOver extends State {
             } }));
 
 
-        uiManager.addObjects(new UIImageButton(590, (10+(15+16))+(15+16), 128, 64, Images.titleButtonGameOver, () -> {
+        uiManager.addObjects(new UIImageButton(500, (300+(15+16))+(15+16), 150, 150, Images.titleButtonGameOver, () -> {
             handler.getMouseManager().setUimanager(null);
             State.setState(handler.getGame().menuState);
         }));

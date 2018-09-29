@@ -5,7 +5,17 @@ import Main.Handler;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
+
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import Game.GameStates.PauseState;
 import Game.GameStates.State;
@@ -23,6 +33,13 @@ public class Player {
 	public int yCoord;
 
 	public int moveCounter;
+	
+	//Res.music
+    private InputStream audioFile;
+    private AudioInputStream audioStream;
+    private AudioFormat format;
+    private DataLine.Info info;
+    private Clip audioClip;
 
 	public String direction;//is your first name one?
 
@@ -132,7 +149,7 @@ public class Player {
 	public void render(Graphics g,Boolean[][] playeLocation){
 		Random r = new Random();
 		g.setColor(Color.WHITE);
-		g.drawString("Score " + timesEaten, 785, 60);
+		g.drawString("Score " + timesEaten * 100, 785, 60);
 		for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
 			for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
 				g.setColor(Color.GREEN);
@@ -155,6 +172,26 @@ public class Player {
 		Tail tail= null;
 		handler.getWorld().appleLocation[xCoord][yCoord]=false;
 		handler.getWorld().appleOnBoard=false;
+		
+		try {
+
+            audioFile = getClass().getResourceAsStream("/music/Undertale-Sound-Effect-Restoring-Health.wav");
+            audioStream = AudioSystem.getAudioInputStream(audioFile);
+            format = audioStream.getFormat();
+            info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+		}
+		catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+		
+		
 		switch (direction){
 		case "Left":
 			if( handler.getWorld().body.isEmpty()){
@@ -253,6 +290,7 @@ public class Player {
 				}
 
 			}
+			
 			break;
 		}
 		handler.getWorld().body.addLast(tail);
